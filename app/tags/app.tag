@@ -23,6 +23,7 @@ import Core from '../libs/core';
     this.on('mount', () => {
       this.toggleObserved(true);
       Core.start();
+      $('body').fadeIn(2000);
     });
 
     this.on('unmount', this.toggleObserved.bind(this, false));

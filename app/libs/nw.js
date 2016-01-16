@@ -1,20 +1,26 @@
 import gui from 'nw.gui';
 let tray;
 
-export function startApp() {
+export function initApp() {
   const win = gui.Window.get();
+
   if (process.env.NODE_ENV === 'development') {
     devHelpers(document);
     showDevTools();
     setupTray();
   }
 
-  win.on('close', () => {
-    if (tray) {
-      tray.remove();
-      tray = null;
-    }
+  win.on('close', function() {
+    removeTray();
+    this.close(true);
   })
+}
+
+function removeTray() {
+  if (tray) {
+    tray.remove();
+    tray = null;
+  }
 }
 
 function devHelpers(doc) {
@@ -22,6 +28,7 @@ function devHelpers(doc) {
     const win = gui.Window.get();
     if ((e.ctrlKey || e.metaKey) && e.keyCode == 82) {
         // CTRL (CMD) + R reloads the page
+      removeTray();
       win.reload();
     }
 
@@ -48,8 +55,29 @@ function setupTray() {
   tray = new gui.Tray({
     icon: 'icon.' + (platform().isOSX ? 'tiff' : 'png')
   });
+
+  // Setup menu
+  let menu = new gui.Menu();
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Start' }));
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Stop', click: stopApp }));
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Quit', click: quitApp }));
+
+  tray.menu = menu;
 }
 
+function stopApp() {
+  let win = gui.Window.get();
+  if (win) {
+    win.hide();
+  }
+}
+
+function quitApp() {
+  let win = gui.Window.get();
+  if (win) {
+    win.close();
+  }
+}
 
 function platform() {
   let platform = process.platform;

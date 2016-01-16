@@ -1,8 +1,8 @@
-require('./app.tag');
-import { startApp } from './libs/nw';
+require('./tags/app.tag');
+import { initApp } from './libs/nw';
 
 $(() => {
-  startApp();
+  initApp();
   riot.mount('*');
 });
 
