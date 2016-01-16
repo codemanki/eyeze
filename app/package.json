@@ -3,7 +3,7 @@
   "productName": "Eyeze",
   "description": "Eyeze - exercises for your eyes.",
   "version": "0.0.1",
-  "author": "Oleksii Sribnyj <me@codemanki.com>",
+  "author": "Oleksii Sribnyi <me@codemanki.com>",
   "main": "app.html",
   "window": {
     "icon": "icon.png",

@@ -56,7 +56,7 @@ function showDevTools() {
 
 function setupTray() {
   tray = new gui.Tray({
-    icon: 'icon.' + (platform().isOSX ? 'tiff' : 'png')
+    icon: '/assets/icon.' + (platform().isOSX ? 'tiff' : 'png')
   });
 
   // Setup menu
