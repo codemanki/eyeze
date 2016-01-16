@@ -1,5 +1,6 @@
 import gui from 'nw.gui';
 let tray;
+const observable = riot.observable();
 
 export function initApp() {
   const win = gui.Window.get();
@@ -13,7 +14,9 @@ export function initApp() {
   win.on('close', function() {
     removeTray();
     this.close(true);
-  })
+  });
+
+  return observable;
 }
 
 function removeTray() {
@@ -67,6 +70,7 @@ function setupTray() {
 
 function stopApp() {
   let win = gui.Window.get();
+  observable.trigger('stop');
   if (win) {
     win.hide();
   }
@@ -74,6 +78,7 @@ function stopApp() {
 
 function quitApp() {
   let win = gui.Window.get();
+  observable.trigger('stop');
   if (win) {
     win.close();
   }
@@ -86,10 +91,12 @@ function startApp() {
     width: window.screen.width, height: window.screen.height
   };
 
-  if (!inDevelopment) {
+  if (inDevelopment) {
     windowSizeOptions.width = 1024;
     windowSizeOptions.height = 768;
   }
+
+  observable.trigger('start');
 
   win.resizeTo(windowSizeOptions.width, windowSizeOptions.height);
   win.moveTo(0,0);

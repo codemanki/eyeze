@@ -15,12 +15,11 @@
     </style>
   <script>
     function listeners(onOrOff) {
-      const method = onOrOff ? 'on' : 'off';
-      this._handleWindowResize = this._handleWindowResize || handleWindowResize.bind(this);
-
-      $(window)[method]('resize', this._handleWindowResize);
       if (onOrOff) {
-        this._handleWindowResize();
+        handleWindowResize.call(this);
+        $(window).on('resize', handleWindowResize.bind(this));
+      } else {
+        $(window).off('resize'); // Just remove all listeners
       }
     }
 
@@ -31,6 +30,7 @@
         'padding-top': padding
       });
     }
+
     this.on('mount', listeners.bind(this, true));
     this.on('unmount', listeners.bind(this, false));
   </script>
