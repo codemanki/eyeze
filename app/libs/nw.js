@@ -58,7 +58,7 @@ function setupTray() {
 
   // Setup menu
   let menu = new gui.Menu();
-  menu.append(new gui.MenuItem({ type: 'normal', label: 'Start' }));
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Start', click: startApp }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Stop', click: stopApp }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Quit', click: quitApp }));
 
@@ -79,6 +79,23 @@ function quitApp() {
   }
 }
 
+function startApp() {
+  const inDevelopment = process.env.NODE_ENV === 'development';
+  let win = gui.Window.get();
+  let windowSizeOptions = {
+    width: window.screen.width, height: window.screen.height
+  };
+
+  if (!inDevelopment) {
+    windowSizeOptions.width = 1024;
+    windowSizeOptions.height = 768;
+  }
+
+  win.resizeTo(windowSizeOptions.width, windowSizeOptions.height);
+  win.moveTo(0,0);
+  win.show();
+}
+
 function platform() {
   let platform = process.platform;
   const arch = process.arch === 'ia32' ? '32' : '64';
@@ -96,3 +113,5 @@ function platform() {
     arch: arch
   };
 }
+
+
