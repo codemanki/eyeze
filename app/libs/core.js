@@ -1,8 +1,9 @@
 import AppSettings from './settings';
+import AudioManager from './audio';
 
 const exercises = [
   {name: 'intro',          duration: -1},
-  {name: 'relax-exercies', duration: 20}
+  {name: 'relax-exercise', duration: 20}
 ]
 
 class Core {
@@ -16,6 +17,8 @@ class Core {
   }
 
   next() {
+    AudioManager.play();
+
     if (this.step < exercises.length - 1) {
       this.step++;
       executeStep.call(this);

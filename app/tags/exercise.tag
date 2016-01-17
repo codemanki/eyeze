@@ -61,9 +61,10 @@ require('./exercises/relax-exercise.tag');
   <div class="exercise_wrapper"></div>
   <script>
     function onRender(exercise) {
-      this.unmount(true); // Remove any previous exercise
-      const ex = riot.mount('.exercise_wrapper', exercise.name);
-      console.log(ex);
+      console.log('Render', exercise);
+      const ex = riot.mount('.exercise_wrapper', exercise.name, {
+        exercise, next: opts.observable.next.bind(opts.observable)
+      });
     }
 
     this.on('mount', function() {

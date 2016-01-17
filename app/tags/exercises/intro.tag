@@ -31,13 +31,12 @@ import AppSettings from  '../../libs/settings';
     }
   </style>
   <script>
-    console.log(AppSettings);
-    someAlert() {
-      alert('1');
+    start() {
+      opts.next();
       return true;
     }
     onSkipIntroClick(e) {
-      // Direcly edit property
+      // Directly edit property
       AppSettings.save('skipInto',!!e.target.checked)
       return true;
     }
@@ -55,7 +54,7 @@ import AppSettings from  '../../libs/settings';
     <div>
     <div class="navigation">
       <checkbox name="skipIntro" text="Skip intro next time" onChangeHandler={onSkipIntroClick}/>
-      <buttonLink text="Start" onclick={someAlert}/>
+      <buttonLink text="Start" onclick={start}/>
     </div>
   </div>
 </intro>
