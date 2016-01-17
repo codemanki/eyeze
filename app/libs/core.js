@@ -6,7 +6,8 @@ const exercises = [
   {name: 'relax-exercise',       duration: 20},
   {name: 'up-down-exercise',     duration: 20},
   {name: 'clip-eyes-exercise',   duration: 10},
-  {name: 'left-right-exercise',  duration: 20}
+  {name: 'left-right-exercise',  duration: 20},
+  {name: 'diagonal-exercise',    duration: 20}
 ]
 
 class Core {

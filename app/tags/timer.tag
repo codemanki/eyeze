@@ -3,8 +3,8 @@
   <script>
     let duration = opts.duration + 1;
     let $timer;
+
     function tick() {
-      console.log(duration);
       duration--;
       if (duration < 0) {
         opts.onfinish();
