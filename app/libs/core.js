@@ -2,8 +2,9 @@ import AppSettings from './settings';
 import AudioManager from './audio';
 
 const exercises = [
-  {name: 'intro',          duration: -1},
-  {name: 'relax-exercise', duration: 20}
+  {name: 'intro',            duration: -1},
+  {name: 'relax-exercise',   duration: 25},
+  {name: 'up-down-exercise', duration: 25}
 ]
 
 class Core {

@@ -1,5 +1,6 @@
 require('./exercises/intro.tag');
 require('./exercises/relax-exercise.tag');
+require('./exercises/up-down-exercise.tag');
 
 <exercise>
   <style>
@@ -47,6 +48,7 @@ require('./exercises/relax-exercise.tag');
       right: 20px;
       left: 20px;
       bottom: 20px;
+      heigth: 100%;
     }
 
     .exercise_wrapper .dot:before {

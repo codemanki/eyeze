@@ -15,5 +15,4 @@ class AudioManager {
 
 }
 
-
 export default new AudioManager();
