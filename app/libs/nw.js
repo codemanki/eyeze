@@ -55,8 +55,12 @@ function showDevTools() {
 }
 
 function setupTray() {
+  if (tray) {
+    return;
+  }
+
   tray = new gui.Tray({
-    icon: '/assets/icon.' + (platform().isOSX ? 'tiff' : 'png')
+    icon: 'assets/icon.' + (platform().isOSX ? 'tiff' : 'png')
   });
 
   // Setup menu
@@ -92,9 +96,11 @@ function startApp() {
   };
 
   if (inDevelopment) {
-    windowSizeOptions.width = 1024;
+    windowSizeOptions.width = 800;
     windowSizeOptions.height = 768;
   }
+
+  win.setAlwaysOnTop(!inDevelopment);
 
   observable.trigger('start');
 

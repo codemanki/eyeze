@@ -1,3 +1,5 @@
+import AppSettings from './settings';
+
 const exercises = [
   {name: 'intro',          duration: -1},
   {name: 'relax-exercies', duration: 20}

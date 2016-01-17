@@ -4,14 +4,14 @@ const DEFAULT_SETTINGS = {
 
 let settings = getSettings();
 
-export default const AppSettings = {
+export default {
   getItem: (item) => {
     return settings[item];
   },
 
   getAll: () => {
     return settings;
-  }
+  },
 
   save: (item, value) => {
     settings[item] = value;
@@ -23,7 +23,7 @@ function getSettings() {
   let result;
   try {
     result = JSON.parse(localStorage.settings);
-  } catch () {
+  } catch (e) {
     // No settings, save defaults
     localStorage.setItem('settings', JSON.stringify(DEFAULT_SETTINGS));
     result = DEFAULT_SETTINGS;

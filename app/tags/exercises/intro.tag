@@ -1,4 +1,6 @@
 require('../button-link.tag');
+require('../checkbox.tag');
+import AppSettings from  '../../libs/settings';
 
 <intro>
   <style scoped>
@@ -11,7 +13,7 @@ require('../button-link.tag');
       text-align: left;
     }
 
-    :scope .container > .introTitle {
+    :scope .container .introTitle {
       font-size: 40px;
       letter-spacing: -1px;
       line-height: 35px;
@@ -20,17 +22,23 @@ require('../button-link.tag');
       padding-bottom: 32px;
     }
 
-    :scope .container > .nav_info {
+    :scope .container .navigation {
       padding-top: 12px;
     }
 
-    :scope .container > .button {
+    :scope .container .navigation buttonLink {
       margin-left: 24px;
     }
   </style>
   <script>
+    console.log(AppSettings);
     someAlert() {
       alert('1');
+      return true;
+    }
+    onSkipIntroClick(e) {
+      // Direcly edit property
+      AppSettings.save('skipInto',!!e.target.checked)
       return true;
     }
   </script>
@@ -46,6 +54,7 @@ require('../button-link.tag');
       <p>Total time of the exercise: 3 minutes 25 seconds.</p>
     <div>
     <div class="navigation">
+      <checkbox name="skipIntro" text="Skip intro next time" onChangeHandler={onSkipIntroClick}/>
       <buttonLink text="Start" onclick={someAlert}/>
     </div>
   </div>

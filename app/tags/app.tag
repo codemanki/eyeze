@@ -11,6 +11,7 @@ import Core from '../libs/core';
   <script>
     this.core   = Core; // pass Core object to exercise options
     const $body = $('body');
+
     this.on('mount', () => {
       $body.fadeIn(2000, () => {
         Core.start();

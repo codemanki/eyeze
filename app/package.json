@@ -11,8 +11,7 @@
     "toolbar": true,
     "position": "center",
     "frame": false,
-    "toolbar": false,
-    "always-on-top": true
+    "toolbar": false
   },
   "dependencies": {
     "fs-jetpack": "^0.6.4"
