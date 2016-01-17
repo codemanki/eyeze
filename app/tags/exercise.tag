@@ -6,6 +6,10 @@ require('./exercises/clip-eyes-exercise.tag');
 require('./exercises/left-right-exercise.tag');
 require('./exercises/diagonal-exercise.tag');
 require('./exercises/clockwise-exercise.tag');
+require('./exercises/spirally-exercise.tag');
+require('./exercises/distance-exercise.tag');
+require('./exercises/relax-final-exercise.tag');
+
 
 <exercise>
   <style>

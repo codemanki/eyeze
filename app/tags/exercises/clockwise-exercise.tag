@@ -10,8 +10,8 @@ require('../timer.tag');
       -webkit-animation-name: animation5;
 
       -webkit-animation-duration: 4s;
-
       -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
     }
 
     @-webkit-keyframes animation5 {
