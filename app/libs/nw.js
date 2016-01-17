@@ -65,7 +65,10 @@ function setupTray() {
 
   // Setup menu
   let menu = new gui.Menu();
-  menu.append(new gui.MenuItem({ type: 'normal', label: 'Start', click: startApp }));
+  if (isDevelopment) {
+    menu.append(new gui.MenuItem({ type: 'normal', label: 'Start(Dev)', click: startApp.bind(this, true) }));
+  }
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Start', click: startApp.bind(this, false) }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Stop', click: stopApp }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Quit', click: quitApp }));
 
@@ -88,19 +91,22 @@ function quitApp() {
   }
 }
 
-function startApp() {
-  const inDevelopment = process.env.NODE_ENV === 'development';
+function isDevelopment() {
+  return process.env.NODE_ENV === 'development';
+}
+
+function startApp(runInDevelopmentMode) {
   let win = gui.Window.get();
   let windowSizeOptions = {
     width: window.screen.width, height: window.screen.height
   };
 
-  if (inDevelopment) {
+  if (runInDevelopmentMode) {
     windowSizeOptions.width = 800;
     windowSizeOptions.height = 768;
   }
 
-  win.setAlwaysOnTop(!inDevelopment);
+  win.setAlwaysOnTop(!runInDevelopmentMode);
 
   observable.trigger('start');
 
