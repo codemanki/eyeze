@@ -3,6 +3,7 @@ require('./exercises/intro.tag');
 require('./exercises/relax-exercise.tag');
 require('./exercises/up-down-exercise.tag');
 require('./exercises/clip-eyes-exercise.tag');
+require('./exercises/left-right-exercise.tag');
 
 <exercise>
   <style>
