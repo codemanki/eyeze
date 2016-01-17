@@ -5,6 +5,7 @@ require('./exercises/up-down-exercise.tag');
 require('./exercises/clip-eyes-exercise.tag');
 require('./exercises/left-right-exercise.tag');
 require('./exercises/diagonal-exercise.tag');
+require('./exercises/clockwise-exercise.tag');
 
 <exercise>
   <style>
@@ -52,7 +53,6 @@ require('./exercises/diagonal-exercise.tag');
       right: 20px;
       left: 20px;
       bottom: 20px;
-      heigth: 100%;
     }
 
     .exercise_wrapper .dot:before {
