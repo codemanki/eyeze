@@ -13,7 +13,8 @@ const exercises = [
   {name: 'spirally-exercise',    duration: 20},
   {name: 'clip-eyes-exercise',   duration: 10},
   {name: 'distance-exercise',    duration: 25},
-  {name: 'relax-final-exercise', duration: 15}
+  {name: 'relax-final-exercise', duration: 15},
+  {name: 'outro',                duration: 10}
 ]
 
 class Core {
@@ -32,6 +33,8 @@ class Core {
     if (this.step < exercises.length - 1) {
       this.step++;
       executeStep.call(this);
+    } else {
+      //finished!
     }
   }
 
