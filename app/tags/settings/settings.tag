@@ -92,6 +92,15 @@ require('../checkbox.tag');
       width: 600px;
     }
 
+    :scope select {
+      border-radius: 3px;
+      border: 1px solid #fff;
+      opacity: 0.8;
+      background: transparent;
+      color: #fff;
+      font-size: 18px;
+    }
+
   </style>
   <script>
     this.on('mount', () => {
