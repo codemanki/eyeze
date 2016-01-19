@@ -36,7 +36,6 @@ function devHelpers(doc) {
     const win = gui.Window.get();
     if ((e.ctrlKey || e.metaKey) && e.keyCode == 82) {
         // CTRL (CMD) + R reloads the page
-      alert('!');
       removeTray();
       win.reload();
     }

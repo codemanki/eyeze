@@ -1,5 +1,8 @@
 const DEFAULT_SETTINGS = {
-  skipInto: false
+  skipInto: false,
+  autoStart: false,
+  breakInterval: 0,
+  enableGradientBackground: true
 };
 
 let settings = getSettings();

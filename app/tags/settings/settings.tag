@@ -1,6 +1,56 @@
+require('../checkbox.tag');
+
 <settings>
   <div class="settingsContainer">
     <div class="header">Settings</div>
+    <table>
+      <tr>
+        <td>
+          <div class="optionTitle">Take a break</div>
+          <div class="optionDescription">every N minutes/never</div>
+        </td>
+        <td>
+          <select name="breakInterval">
+            <option value="0">never</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">1 hour</option>
+            <option value="90">1.5 hours</option>
+            <option value="120">2 hours</option>
+            <option value="240">4 hours</option>
+            <option value="360">6 hours</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="optionTitle">Launch at start</div>
+          <div class="optionDescription">auto start with system</div>
+        </td>
+        <td>
+          <checkbox name="autoStart"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="optionTitle">Disable gradient background</div>
+          <div class="optionDescription">lowers cpu usage, turn on weak machines</div>
+        </td>
+        <td>
+          <checkbox name="enableGradientBackground"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="optionTitle">Show intro slide</div>
+          <div class="optionDescription">slide with instructions</div>
+        </td>
+        <td>
+          <checkbox name="skipInto"/>
+        </td>
+      </tr>
+    </table>
   </div>
   <style scoped>
     :scope .settingsContainer {
@@ -24,6 +74,24 @@
       text-align: center;
       margin-top: 30px;
     }
+
+    :scope .optionTitle {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    :scope .optionDescription {
+      font-size: 14px;
+    }
+
+    :scope table {
+      margin: 30px auto;
+      border-collapse: separate;
+      border-spacing: 10px;
+      border: 0;
+      width: 600px;
+    }
+
   </style>
   <script>
     this.on('mount', () => {
