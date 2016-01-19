@@ -68,7 +68,9 @@ function setupTray() {
   if (isDevelopment) {
     menu.append(new gui.MenuItem({ type: 'normal', label: 'Start(Dev)', click: startApp.bind(this, true) }));
   }
+
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Start', click: startApp.bind(this, false) }));
+  menu.append(new gui.MenuItem({ type: 'normal', label: 'Settings', icon: 'assets/cog.png', click: startSettings.bind(this) }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Stop', click: stopApp }));
   menu.append(new gui.MenuItem({ type: 'normal', label: 'Quit', click: quitApp }));
 
@@ -112,6 +114,14 @@ function startApp(runInDevelopmentMode) {
 
   win.resizeTo(windowSizeOptions.width, windowSizeOptions.height);
   win.moveTo(0,0);
+  win.show();
+}
+
+function startSettings() {
+  let win = gui.Window.get();
+  observable.trigger('settings');
+  win.setPosition('center');
+  win.resizeTo(700, 500);
   win.show();
 }
 
