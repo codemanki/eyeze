@@ -14,7 +14,9 @@ $(() => {
   });
 
   appObservable.on('stop', () => {
-    appTag.unmount(true);
+    if (appTag) {
+      appTag.unmount(true);
+    }
   });
 });
 

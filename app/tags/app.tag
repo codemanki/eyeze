@@ -13,9 +13,11 @@ import Core from '../libs/core';
     const $body = $('body');
 
     this.on('mount', () => {
-      $body.fadeIn(2000, () => {
+      $body.fadeIn(2000);
+      // Bottle neck. Core should start after body is visible and everything is mounted
+      setTimeout(() => {
         Core.start();
-      });
+      }, 2100);
     });
 
     this.on('unmount', () => {

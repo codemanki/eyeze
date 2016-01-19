@@ -109,6 +109,7 @@ import AppSettings from '../../libs/settings';
 
   </style>
   <script>
+    const $body = $('body');
     this.settings = AppSettings.getAll();
     onEnableGradientBackgroundClick(e) {
       // Directly edit property
@@ -116,7 +117,12 @@ import AppSettings from '../../libs/settings';
     };
 
     this.on('mount', () => {
-      $('body').fadeIn(500);
+      $body.fadeIn(500);
+    });
+
+    this.on('unmount', () => {
+      //Make body hidden again
+      $body.hide();
     });
   </script>
 </settings>

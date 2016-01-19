@@ -103,6 +103,7 @@ function isDevelopment() {
 }
 
 function startApp(runInDevelopmentMode) {
+  stopApp();
   let win = gui.Window.get();
   let windowSizeOptions = {
     width: window.screen.width, height: window.screen.height
@@ -123,6 +124,7 @@ function startApp(runInDevelopmentMode) {
 }
 
 function startSettings() {
+  stopApp();
   let win = gui.Window.get();
   observable.trigger('settings');
   win.setPosition('center');
