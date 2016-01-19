@@ -1,3 +1,5 @@
+import AppSettings from '../libs/settings';
+
 <background>
   <style scoped>
     :scope {
@@ -6,6 +8,58 @@
       left: 0;
       right: 0;
       bottom: 0;
+    }
+
+    :scope.background {
+      background: #527b9c;
+    }
+
+    :scope.background1 {
+      background: #c95b77;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background2 {
+      background: #895da0;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background3 {
+      background: #8adbb0;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background4 {
+      background: #9dc578;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background5 {
+      background: #e97e82;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background6 {
+      background: #c160a1;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background7 {
+      background: #3ac1a1;
+      transition-property: background;
+      transition-duration: 15s;
+    }
+
+    :scope.background8 {
+      background: #985d83;
+      transition-property: background;
+      transition-duration: 15s;
     }
   </style>
   <script>
@@ -78,9 +132,28 @@
       }
     }
 
+    function cycleBackground($div) {
+      let backgroundNumber = 1;
+
+      $div.addClass('background');
+
+      setInterval(function () {
+        if (backgroundNumber === 9) {
+          backgroundNumber = 0;
+        } else {
+          backgroundNumber++;
+          $div.addClass('background' + backgroundNumber);
+        }
+      }, TRANSITION_TIME);
+    }
+
     this.on('mount', () => {
-      performAnimationStep();
-      setInterval(updateGradient.bind(this, this.root.style), Math.round(1000 / FPS));
+      if (AppSettings.getItem('enableGradientBackground')) {
+        performAnimationStep();
+        setInterval(updateGradient.bind(this, this.root.style), Math.round(1000 / FPS));
+      } else {
+        cycleBackground($(this.root));
+      }
     });
   </script>
 </background>

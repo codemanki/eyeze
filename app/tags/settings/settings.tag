@@ -1,5 +1,7 @@
 require('../checkbox.tag');
 
+import AppSettings from '../../libs/settings';
+
 <settings>
   <div class="settingsContainer">
     <div class="header">Settings</div>
@@ -34,11 +36,15 @@ require('../checkbox.tag');
       </tr>
       <tr>
         <td>
-          <div class="optionTitle">Disable gradient background</div>
-          <div class="optionDescription">lowers cpu usage, turn on weak machines</div>
+          <div class="optionTitle">Enable gradient background</div>
+          <div class="optionDescription">disable on weak machines</div>
         </td>
         <td>
-          <checkbox name="enableGradientBackground"/>
+          <checkbox
+            name="enableGradientBackground"
+            onChangeHandler={onEnableGradientBackgroundClick}
+            isChecked={ settings.enableGradientBackground }
+          />
         </td>
       </tr>
       <tr>
@@ -103,6 +109,12 @@ require('../checkbox.tag');
 
   </style>
   <script>
+    this.settings = AppSettings.getAll();
+    onEnableGradientBackgroundClick(e) {
+      // Directly edit property
+      AppSettings.save('enableGradientBackground', !!e.target.checked);
+    };
+
     this.on('mount', () => {
       $('body').fadeIn(500);
     });

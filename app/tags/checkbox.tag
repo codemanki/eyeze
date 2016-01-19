@@ -1,5 +1,5 @@
 <checkbox>
-  <input type="checkbox" id="{opts.name}" onchange={opts.onchangehandler} checked={opts.checked && 'checked'}>
+  <input type="checkbox" id="{opts.name}" onchange={opts.onchangehandler} checked={opts.ischecked && 'checked'}>
   <label for="{opts.name}">
     <span class="check"></span>
     <span class="labelText">{opts.text}</spa>

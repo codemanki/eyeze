@@ -37,7 +37,7 @@ import AppSettings from  '../../libs/settings';
     }
     onSkipIntroClick(e) {
       // Directly edit property
-      AppSettings.save('skipInto',!!e.target.checked)
+      AppSettings.save('skipInto', !!e.target.checked);
       return true;
     }
   </script>

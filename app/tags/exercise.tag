@@ -72,7 +72,6 @@ require('./exercises/outro.tag');
   <div class="exercise_wrapper"></div>
   <script>
     function onRender(exercise) {
-      console.log('Render', exercise);
       const ex = riot.mount('.exercise_wrapper', exercise.name, {
         exercise, next: opts.observable.next.bind(opts.observable)
       });
