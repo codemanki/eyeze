@@ -1,5 +1,5 @@
 const DEFAULT_SETTINGS = {
-  skipInto: false,
+  showIntro: false,
   autoStart: false,
   breakInterval: 0,
   enableGradientBackground: true

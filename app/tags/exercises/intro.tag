@@ -37,7 +37,7 @@ import AppSettings from  '../../libs/settings';
     }
     onSkipIntroClick(e) {
       // Directly edit property
-      AppSettings.save('skipInto', !!e.target.checked);
+      AppSettings.save('showIntro', !(!!e.target.checked));
       return true;
     }
   </script>
@@ -53,7 +53,7 @@ import AppSettings from  '../../libs/settings';
       <p>Total time of the exercise: 3 minutes 25 seconds.</p>
     <div>
     <div class="navigation">
-      <checkbox name="skipIntro" text="Skip intro next time" onChangeHandler={onSkipIntroClick}/>
+      <checkbox name="showIntro" text="Skip intro next time" onChangeHandler={onSkipIntroClick}/>
       <buttonLink text="Start" onclick={start}/>
     </div>
   </div>

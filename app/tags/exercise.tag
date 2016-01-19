@@ -71,10 +71,11 @@ require('./exercises/outro.tag');
   </style>
   <div class="exercise_wrapper"></div>
   <script>
+    let exerciseTag;
     function onRender(exercise) {
-      const ex = riot.mount('.exercise_wrapper', exercise.name, {
+      exerciseTag = riot.mount('.exercise_wrapper', exercise.name, {
         exercise, next: opts.observable.next.bind(opts.observable)
-      });
+      })[0];
     }
 
     this.on('mount', function() {
@@ -82,6 +83,7 @@ require('./exercises/outro.tag');
     });
 
     this.on('unmount', () => {
+      exerciseTag.trigger('unmount'); // Send unmount signal to dynamic exercise
       opts.observable.off('*');
     });
   </script>

@@ -39,7 +39,7 @@ class Core {
   }
 
   reset() {
-    this.step = 0;
+    this.step = AppSettings.getItem('showIntro') ? 0 : 1;
   }
 
 }

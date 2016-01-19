@@ -21,7 +21,7 @@ import Core from '../libs/core';
     });
 
     this.on('unmount', () => {
-      //Make body hidden again
+      // Make body hidden again
       $body.hide();
     });
   </script>

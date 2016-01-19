@@ -3,6 +3,7 @@
   <script>
     let duration = opts.duration + 1;
     let $timer;
+    let timerId;
 
     function tick() {
       duration--;
@@ -10,13 +11,19 @@
         opts.onfinish();
       } else {
         $timer.text(duration);
-        setTimeout(tick, 1000);
+        timerId = setTimeout(tick, 1000);
       }
     }
 
     this.on('mount', () => {
       $timer = $('.timer');
       tick();
-    })
+    });
+
+    this.on('unmount', () => {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+    });
   </script>
 </timer>

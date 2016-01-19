@@ -53,7 +53,10 @@ import AppSettings from '../../libs/settings';
           <div class="optionDescription">slide with instructions</div>
         </td>
         <td>
-          <checkbox name="skipInto"/>
+          <checkbox name="showIntro"
+            onChangeHandler={onShowIntroClick}
+            isChecked={ settings.showIntro }
+          />
         </td>
       </tr>
     </table>
@@ -111,8 +114,12 @@ import AppSettings from '../../libs/settings';
   <script>
     const $body = $('body');
     this.settings = AppSettings.getAll();
+    //Refactor on*click functions
+    onShowIntroClick(e) {
+      AppSettings.save('showIntro', !!e.target.checked);
+    }
+
     onEnableGradientBackgroundClick(e) {
-      // Directly edit property
       AppSettings.save('enableGradientBackground', !!e.target.checked);
     };
 
